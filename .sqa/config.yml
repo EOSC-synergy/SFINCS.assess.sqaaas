@@ -1,0 +1,42 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/Deltares/SFINCS:
+      branch: main
+      repo: https://github.com/Deltares/SFINCS
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/2.0.0
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      github.com/Deltares/SFINCS git:
+        commands:
+        - /usr/bin/env sh .sqa/script.thirsty-pumpkin-elephant.sh
+        container: qc.acc_wheezy-sangria-numbat
+  QC.Doc:
+    repos:
+      github.com/Deltares/SFINCS find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.smelly-russet-lizard.sh
+        container: qc.doc_chewy-pink-insect
+      github.com/Deltares/SFINCS git:
+        commands:
+        - /usr/bin/env sh .sqa/script.gamy-gold-retriever.sh
+        container: qc.doc_hazy-fuchsia-javanese
+  QC.Lic:
+    repos:
+      github.com/Deltares/SFINCS licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.randy-peach-catfish.sh
+        container: qc.lic_wiggy-cyan-akita
+  QC.Ver:
+    repos:
+      github.com/Deltares/SFINCS get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.silly-denim-deer.sh
+        container: qc.ver_scanty-persimmon-terrier
+timeout: 5400
