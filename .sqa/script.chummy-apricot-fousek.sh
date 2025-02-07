@@ -5,5 +5,5 @@
 
 (
 cd github.com/Deltares/SFINCS &&
-    git rev-parse --is-inside-work-tree
+    rst-lint --level warning --format json .
 )

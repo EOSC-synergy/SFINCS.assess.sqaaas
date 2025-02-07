@@ -5,5 +5,5 @@
 
 (
 cd github.com/Deltares/SFINCS &&
-    licensee detect . --confidence 60 --json
+    licensee detect . --confidence 60 --json 
 )

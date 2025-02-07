@@ -5,7 +5,7 @@ config:
       branch: main
       repo: https://github.com/Deltares/SFINCS
     github.com/EOSC-synergy/sqaaas-tooling:
-      branch: release/2.0.0
+      branch: main
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
 environment:
   JPL_DOCKERFORCEBUILD: enabled
@@ -15,28 +15,62 @@ sqa_criteria:
     repos:
       github.com/Deltares/SFINCS git:
         commands:
-        - /usr/bin/env sh .sqa/script.thirsty-pumpkin-elephant.sh
-        container: qc.acc_wheezy-sangria-numbat
+        - /usr/bin/env sh .sqa/script.cloudy-taupe-bat.sh
+        container: qc.acc_bluesy-lemon-hippopotamus
   QC.Doc:
     repos:
       github.com/Deltares/SFINCS find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.smelly-russet-lizard.sh
-        container: qc.doc_chewy-pink-insect
+        - /usr/bin/env sh .sqa/script.frumpy-rust-cuttlefish.sh
+        container: qc.doc_nerdy-azure-coral
       github.com/Deltares/SFINCS git:
         commands:
-        - /usr/bin/env sh .sqa/script.gamy-gold-retriever.sh
-        container: qc.doc_hazy-fuchsia-javanese
+        - /usr/bin/env sh .sqa/script.sunny-blue-badger.sh
+        container: qc.doc_gummy-pumpkin-macaque
+      github.com/Deltares/SFINCS markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.geeky-xanthic-mongrel.sh
+        container: qc.doc_sloppy-zucchini-stingray
+      github.com/Deltares/SFINCS restructuredtext-lint:
+        commands:
+        - /usr/bin/env sh .sqa/script.chummy-apricot-fousek.sh
+        container: qc.doc_skimpy-ochre-coral
   QC.Lic:
     repos:
       github.com/Deltares/SFINCS licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.randy-peach-catfish.sh
-        container: qc.lic_wiggy-cyan-akita
+        - /usr/bin/env sh .sqa/script.shabby-heliotrope-loon.sh
+        container: qc.lic_droopy-pink-woodlouse
+  QC.Sec:
+    repos:
+      github.com/Deltares/SFINCS bandit:
+        commands:
+        - /usr/bin/env sh .sqa/script.silly-cinnabar-chipmunk.sh
+        container: qc.sec_skanky-tangerine-lionfish
+  QC.Sty:
+    repos:
+      github.com/Deltares/SFINCS flake8:
+        commands:
+        - /usr/bin/env sh .sqa/script.greasy-cyan-liger.sh
+        container: qc.sty_hasty-maroon-toad
+      github.com/Deltares/SFINCS hadolint:
+        commands:
+        - /usr/bin/env sh .sqa/script.bluesy-wisteria-otter.sh
+        container: qc.sty_trippy-brass-sheep
+      github.com/Deltares/SFINCS oclint:
+        commands:
+        - /usr/bin/env sh .sqa/script.gummy-sangria-bordeaux.sh
+        container: qc.sty_boozy-rust-lionfish
+  QC.Uni:
+    repos:
+      github.com/Deltares/SFINCS pytest:
+        commands:
+        - /usr/bin/env sh .sqa/script.skanky-goldenrod-malamute.sh
+        container: qc.uni_lousy-coral-foxhound
   QC.Ver:
     repos:
       github.com/Deltares/SFINCS get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.silly-denim-deer.sh
-        container: qc.ver_scanty-persimmon-terrier
+        - /usr/bin/env sh .sqa/script.slaphappy-persimmon-mammoth.sh
+        container: qc.ver_seedy-ultramarine-avocet
 timeout: 5400
